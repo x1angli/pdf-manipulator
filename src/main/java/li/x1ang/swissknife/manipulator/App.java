@@ -68,8 +68,7 @@ public class App {
 		int counter = 0;
 
 		String expectedOperator = null;
-		for (int i = 0; i < tokens.size(); i++) {
-			Object tokenI = tokens.get(i);
+		for (Object tokenI: tokens) {
 			boolean skipTokenJ = false;
 
 			if (expectedOperator == null) {
@@ -77,7 +76,7 @@ public class App {
 					String tokenJstr = ((COSString) tokenI).getString();
 					if (tokenJstr != null) {
 						for (String removeStr : toRemove) {
-							if (tokenJstr.indexOf(removeStr) >= 0) {
+							if (tokenJstr.contains(removeStr)) {
 								expectedOperator = "TJ";
 								skipTokenJ = true;
 								counter++;
@@ -131,7 +130,7 @@ public class App {
 					String uriStr = dict.getString(COSName.URI);
 					if (uriStr != null) {
 						for (String removeStr : toRemove) {
-							if (uriStr.indexOf(removeStr) >= 0) {
+							if (uriStr.contains(removeStr)) {
 								annotations.remove(annotI);
 								counter++;
 							}
