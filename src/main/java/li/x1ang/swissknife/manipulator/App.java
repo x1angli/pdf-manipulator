@@ -31,7 +31,7 @@ public class App {
 		}
 	}
 
-	private PDDocument doc;
+	protected PDDocument doc;
 
 	private void removeWatermark(String input, String output, String[] toRemove) throws IOException {
 		PDDocument doc = PDDocument.load(input);
